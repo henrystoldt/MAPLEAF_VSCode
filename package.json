@@ -22,11 +22,12 @@
             "path": "./syntaxes/mapleaf.tmLanguage.json"
         }]
     },
-    "icon": "https://raw.githubusercontent.com/henrystoldt/MAPLEAF/master/Resources/DraftLogo.png",
+    "icon": "DraftLogo.png",
     "license": "MIT",
     "homepage": "https://github.com/henrystoldt/MAPLEAF",
     "publisher": "MAPLEAF",
     "author": {
         "name": "Henry Stoldt"
-    }
+    },
+    "repository": "https://github.com/henrystoldt/MAPLEAF_VSCode"
 }
