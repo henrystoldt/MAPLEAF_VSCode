@@ -1,0 +1,25 @@
+{
+    "name": "mapleaf",
+    "displayName": "MAPLEAF",
+    "description": "Syntax highlighting for .mapleaf files",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.49.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "mapleaf",
+            "aliases": ["MAPLEAF", "mapleaf"],
+            "extensions": [".mapleaf"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "mapleaf",
+            "scopeName": "text.mapleaf",
+            "path": "./syntaxes/mapleaf.tmLanguage.json"
+        }]
+    }
+}

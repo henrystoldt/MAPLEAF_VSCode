@@ -1,0 +1,52 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MAPLEAF",
+	"fileTypes": [
+		"mapleaf"
+	],
+	"patterns": [
+		{
+			"name": "comment",
+			"match": "#.*$"
+		},
+		{
+			"name": "string",
+			"begin": "\"",
+			"end": "\""
+		},
+		{
+			"name": "string",
+			"begin": "'",
+			"end": "'"
+		},
+		{
+			"name": "keyword.control",
+			"match": "[\\s]+(!create|!replace|!removeKeysContaining)\\b"
+		},
+		{
+			"match": "(?<='[\\s]+)with(?=[\\s]+')",
+			"name": "keyword.control"
+		},
+		{
+			"match": "(?<=!create.*)from",
+			"name": "keyword.control"
+		},
+		{
+			"match": "(?<=!create).*(?=from)",
+			"name": "support.type.property-name"
+		},
+		{
+			"match": "[^\\s]+{",
+			"name": "support.type.property-name"
+		},
+		{
+			"match": "^[\\s]*[^\\s{!#]+[\\s]+",
+			"name": "support.type.property-name"
+		},
+		{
+			"match": "(?<=^[\\s]*[^\\s{!#]+[\\s]+).*",
+			"name": "string"
+		}
+	],
+	"scopeName": "text.mapleaf"
+}
