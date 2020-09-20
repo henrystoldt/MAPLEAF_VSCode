@@ -1,5 +1,5 @@
 {
-    "name": "mapleaf",
+    "name": "MAPLEAF",
     "displayName": "MAPLEAF",
     "description": "Syntax highlighting for .mapleaf files",
     "version": "0.0.1",
@@ -21,5 +21,12 @@
             "scopeName": "text.mapleaf",
             "path": "./syntaxes/mapleaf.tmLanguage.json"
         }]
+    },
+    "icon": "https://raw.githubusercontent.com/henrystoldt/MAPLEAF/master/Resources/DraftLogo.png",
+    "license": "MIT",
+    "homepage": "https://github.com/henrystoldt/MAPLEAF",
+    "publisher": "MAPLEAF",
+    "author": {
+        "name": "Henry Stoldt"
     }
 }
