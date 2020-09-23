@@ -2,7 +2,7 @@
     "name": "MAPLEAF",
     "displayName": "MAPLEAF",
     "description": "Syntax highlighting for .mapleaf files",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "engines": {
         "vscode": "^1.49.0"
     },
@@ -22,7 +22,7 @@
             "path": "./syntaxes/mapleaf.tmLanguage.json"
         }]
     },
-    "icon": "DraftLogo.png",
+    "icon": "Draft2Logo.png",
     "license": "MIT",
     "homepage": "https://github.com/henrystoldt/MAPLEAF",
     "publisher": "MAPLEAF",
