@@ -29,7 +29,7 @@
 		},
 		{
 			"name": "keyword.control",
-			"match": "[\\s]+(!create|!replace|!removeKeysContaining)\\b"
+			"match": "(!create|!replace|!removeKeysContaining|!include)\\b"
 		},
 		{
 			"match": "(?<='[\\s]+)with(?=[\\s]+')",
@@ -41,6 +41,10 @@
 		},
 		{
 			"match": "(?<=!create).*(?=from)",
+			"name": "support.type.property-name"
+		},
+		{
+			"match": "(?<=!include).*",
 			"name": "support.type.property-name"
 		},
 		{
