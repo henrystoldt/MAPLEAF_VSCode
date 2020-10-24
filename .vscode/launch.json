@@ -5,12 +5,53 @@
 {
 	"version": "0.2.0",
     "configurations": [
+        // {
+        //     "name": "Extension",
+        //     "type": "extensionHost",
+        //     "request": "launch",
+        //     "args": [
+        //         "--extensionDevelopmentPath=${workspaceFolder}"
+        //     ]
+        // },
         {
-            "name": "Extension",
+            "name": "Launch Client",
             "type": "extensionHost",
             "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "sourceMaps": true,
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}"
+                "--extensionDevelopmentPath=${workspaceRoot}"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/client/out/**/*.js"
+            ],
+            "preLaunchTask": "compile:client",
+            "env": {
+                "VSCODE_DEBUG_MODE": "true"
+            }
+        },
+        {
+            "name": "Launch Server",
+            "type": "python",
+            "request": "launch",
+            "module": "server",
+            "args": [
+                "--tcp"
+            ],
+            "justMyCode": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server + Client",
+            "configurations": [
+                "Launch Server",
+                "Launch Client"
             ]
         }
     ]
