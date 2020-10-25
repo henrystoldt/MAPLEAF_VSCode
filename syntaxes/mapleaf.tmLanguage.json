@@ -51,11 +51,11 @@
             "name": "entity.name"
         },
         {
-            "match": "^[\\s]*[^\\s{!]+[\\s]+",
+            "match": "^[\\s]*[^\\s{!#]+[\\s]+",
             "name": "support.type.property-name"
         },
         {
-            "match": "(?<=^[\\s]*[^\\s{!]+[\\s]+).*",
+            "match": "(?<=^[\\s]*[^\\s{!#]+[\\s]+).*",
             "name": "string"
         }
     ],
