@@ -4,60 +4,69 @@
     "fileTypes": [
         "mapleaf"
     ],
-    "patterns": [{
-            "name": "comment",
-            "match": "(?<!\\\\)#.*"
-        },
-        {
-            "match": "-?[0-9]+([,.][0-9]+)?(e[^\\s]*)?",
-            "name": "constant.numeric"
-        },
-        {
-            "match": "\\([\\s]*-?[0-9]+([,.][0-9]+)?(e[^\\s]*)?[\\s]+-?[0-9]+([,.][0-9]+)?(e[^\\s]*)?[\\s]+-?[0-9]+([,.][0-9]+)?(e[^\\s]*)?[\\s]*\\)",
-            "name": "constant.numeric"
-        },
-        {
-            "name": "string",
-            "begin": "\"",
-            "end": "\""
-        },
+    "patterns": [
+        { "include": "#keyValueLine" },
+        { "include": "#comment" },
+        { "include": "#dictNames" },
+        { "include": "#derivedDictDeclaration" },
+        { "include": "#dictKeywords" },
+        { "include": "#fileToInclude" },
+        { "include": "#replaceWith" },
         {
             "name": "string",
             "begin": "'",
             "end": "'"
         },
         {
-            "name": "keyword.control",
-            "match": "(!create|!replace|!removeKeysContaining|!include)\\b"
+            "name": "string",
+            "begin": "\"",
+            "end": "\""
+        }
+    ],
+    "repository": {
+        "comment": {
+            "name": "comment",
+            "match": "(?<!\\\\)#.*"
         },
-        {
+        "dictKeywords": {
+            "name": "keyword.control",
+            "match": "(!replace|!removeKeysContaining)\\b"
+        },
+        "derivedDictDeclaration": {
+            "match": "(!create)(.*)(from)([^:]*)(:.*)?{",
+            "captures": {
+                "1": { "name": "keyword.control" },
+                "2": { "name": "entity.name" },
+                "3": { "name": "keyword.control" },
+                "4": { "name": "support.type.property-name" },
+                "5": { "name": "entity.name" }
+            }
+        },
+        "replaceWith": {
             "match": "(?<=!replace.*)with",
             "name": "keyword.control"
         },
-        {
-            "match": "(?<=!create.*)from",
-            "name": "keyword.control"
+        "fileToInclude": {
+            "match": "(!include)(.*)",
+            "captures": {
+                "1": { "name": "keyword.control" },
+                "2": { "name": "support.type.property-name" }
+            }
         },
-        {
-            "match": "(?<=!create).*(?=from)",
-            "name": "support.type.property-name"
-        },
-        {
-            "match": "(?<=!include).*",
-            "name": "support.type.property-name"
-        },
-        {
+        "dictNames": {
             "match": "[^\\s]+{",
             "name": "entity.name"
         },
-        {
-            "match": "^[\\s]*[^\\s{!#]+[\\s]+",
-            "name": "support.type.property-name"
-        },
-        {
-            "match": "(?<=^[\\s]*[^\\s{!#]+[\\s]+).*",
-            "name": "string"
+        "keyValueLine": {
+            "match": "^(\\s*([^\\s#{!]|(?<=\\\\)#)+\\s+)(([^#{!]|(?<=\\\\)#)+)(#.*)?$",
+            "captures": {
+                "1": { "name": "support.type.property-name" },
+                "2": { "name": "support.type.property-name" },
+                "3": { "name": "string" },
+                "4": { "name": "string" },
+                "5": { "name": "comment" }
+            }
         }
-    ],
+    },
     "scopeName": "text.mapleaf"
 }

@@ -2,7 +2,7 @@
     "name": "MAPLEAF",
     "displayName": "MAPLEAF",
     "description": "Syntax highlighting for .mapleaf files",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "engines": {
         "vscode": "^1.49.0"
     },
